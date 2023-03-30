@@ -1,5 +1,6 @@
-import csv
-from Juego.pokemon import Pokemon
+import csv 
+from pokemon import Pokemon
+
 
 
 def get_data_from_coach(coach_1_pokemons, csv):
