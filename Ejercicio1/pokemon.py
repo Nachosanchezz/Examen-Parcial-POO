@@ -39,4 +39,20 @@ class Pokemon:
                 print("La defensa debe ser un número")
                 self.defensa = input("Ingrese la defensa: ")
 
+        while True:
+            if self.salud < 0 or self.salud > 100:
+                self.salud = input("La salud debe estar entre 0 y 100: ")
+            else:
+                break
+        
+        while True:
+            if self.ataque < 0 or self.ataque > 10:
+                self.ataque = input("El ataque debe estar entre 0 y 10:")
+            else:
+                break
+
+        while True:
+            if self.defensa < 0 or self.defensa > 10:
+                self.defensa = input("La defensa debe estar entre 0 y 10:")
+
     
