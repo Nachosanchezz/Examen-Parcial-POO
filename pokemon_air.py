@@ -35,6 +35,7 @@ this Python class.
 
 from pokemon import Pokemon
 from weapon_type import WeaponType
+import random
 
 class PokemonAir():
     """Python class to implement a basic version of a Pokemon of the game.
@@ -89,10 +90,24 @@ class PokemonAir():
         return self.defense_rating
     def __str__(self):
         return "Pokemon ID " + str(self.id) + " with name " + self.pokemon_name + " has as weapon " + self.weapon_type.name + " and health " + str(self.health_points)
-    
-
-
-
+    def is_alive(self):
+        return self.health_points > 0
+    def fight_defense(self, damage):
+        if random.random() < 0.5:
+            print(self.pokemon_name + " avoids the attack")
+            return True
+        else:
+            self.health_points = self.health_points - damage + self.defense_rating
+            if self.health_points <= 0:
+                return False
+            else:
+                return True
+    def fight_attack(self, pokemon_attack):
+        self.health_points = self.health_points -  pokemon_attack.fight_defense(self.attack_rating)
+        if self.health_points <= 0:
+            return False
+        else:
+            return True
 
 def main():
     """Function main of the module.
