@@ -91,7 +91,10 @@ class PokemonAir():
     def __str__(self):
         return "Pokemon ID " + str(self.id) + " with name " + self.pokemon_name + " has as weapon " + self.weapon_type.name + " and health " + str(self.health_points)
     def is_alive(self):
-        return self.health_points > 0
+        if self.health_points > 0:
+            return True
+        else:
+            return False
     def fight_defense(self, damage):
         if random.random() < 0.5:
             print(self.pokemon_name + " avoids the attack")
