@@ -63,10 +63,34 @@ class Pokemon:
             else:
                 self.arma = input("El arma debe ser Puñetazo, Patada, Codazo o Cabezazo: ")
 
+    def esta_vivo(self):
+            if self.salud > 0:
+                return True
+            else:
+                return False
+    
+    def defender(self, puntos_de_daño):
+        if self.defensa > puntos_de_daño:
+            return False
+        else:
+            self.salud -= puntos_de_daño - self.defensa
+            print(self.salud)
+            return True
+    
+    def atacar(self, pokemon_al_que_atacar):
+        return pokemon_al_que_atacar.defender(self.ataque)
+        
+
+
     def __str__(self):
         return "El pokemon con ID: " + str(self.ID) + " de nombre: " + self.nombre + " tiene un arma: " + self.arma + " y una salud de: " + str(self.salud)
     
+pokemon1 = Pokemon(1, "Pikachu", "Puñetazo", 100, 10, 10)
+pokemon2 = Pokemon(2, "Charmander", "Patada", 100, 10, 10)
+print(pokemon1)
+print(pokemon1.atacar(pokemon2))
     
+
                 
                 
 
