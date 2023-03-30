@@ -1,180 +1,79 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+import csv
+from pokemon import Pokemon
 
 
-"""
-This Python method contains the application of the Game.
+def get_data_from_coach(coach_1_pokemons, csv):
+    pokemons_coach_1 = []
+    with open("coach_1_pokemons.csv", "r") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for row in csv_reader:
+            id = row [0]
+            name = row [1]
+            weapon = row [2]
+            health = row [3]
+            attack = row [4]
+            defense = row [5]
+            p = Pokemon(id, name, weapon, health, attack, defense)
+            pokemons_coach_1.append(p)
+            
+    
+    pokemons_coach_2 = []
+    with open("coach_2_pokemons.csv", "r") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for row in csv_reader:
+            id = row [0]
+            name = row [1]
+            weapon = row [2]
+            health = row [3]
+            attack = row [4]
+            defense = row [5]
+            p = Pokemon(id, name, weapon, health, attack, defense)
+            pokemons_coach_2.append(p)
 
-@contents :  This module contains the complete implementation of the application
-             of the Game.
-@project :  N/A
-@program :  N/A
-@file :  main.py
-@author :  Antonio Artes Garcia (antonio.artesgarcia@ceu.es)
-           Francisco Hernando Gallego (francisco.hernandogallego@ceu.es)
-           Ruben Juarez Cadiz (ruben.juarezcadiz@ceu.es)
+    return pokemons_coach_1, pokemons_coach_2
 
-@version :  0.0.1, 08 November 2021
-@information :  The Zen of Python
-                  https://www.python.org/dev/peps/pep-0020/
-                Style Guide for Python Code
-                  https://www.python.org/dev/peps/pep-0008/
-                Example NumPy Style Python Docstrings
-                  http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
-                doctest – Testing through documentation
-                  https://pymotw.com/2/doctest/
+def get_pokemon_in_a_list_of_pokemons(pokemon):
+    print("Choose a Pokemon from the list: ")
+    for i, p in enumerate(pokemon):
+        print(i, p.name)
 
-@copyright :  Copyright 2021 GNU AFFERO GENERAL PUBLIC.
-              All rights are reserved. Reproduction in whole or in part is
-              prohibited without the written consent of the copyright owner.
-"""
-
-
-# Source packages.
-
-
-
-def get_data_from_user(name_file):
-    """Function to obtain data from each user.
-
-    This function obtains data from each user in order to set the configuration
-    of the Game.
-
-    Syntax
-    ------
-      [ ] = get_data_from_user(name_file)
-
-    Parameters
-    ----------
-      name_file str Name of the CSV file.
-
-    Returns
-    -------
-      list_pokemons List of Pokemons obtained from CSV .
-
-    Example
-    -------
-      >>> list_pokemons = get_data_from_user("file.csv")
-    """
-
-
-
-def get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
-    """Function to know the list of Pokemons that are associated to the Coach.
-
-    This function is used in order to know the list of Pokemos that are
-    associated to the coach. This function prints the result of this list, so
-    the user can select a Pokemon.
-
-    Syntax
-    ------
-       [ ] = get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
-
-    Parameters
-    ----------
-       [in] coach_to_ask Coach to ask for her/his list of Pokemons.
-       [in] list_of_pokemons List of the Pokemons that are associated to the
-                             coach.
-
-    Returns
-    -------
-       List List of the Pokemons associaated to the coach that are undefeated.
-
-    Example
-    -------
-       >>> get_pokemon_in_a_list_of_pokemons(1, list_of_pokemons)
-    """
-
-
+    while True:
+        try:
+            opcion = int(input("Choose a Pokemon: "))
+            if opcion < 0 or opcion > len(pokemon):
+                print("The option is not valid. Try again.")
+            else:
+                return pokemon[opcion - 1]
+        except ValueError:
+            print("The option is not valid. Try again.")
 
 def coach_is_undefeated(list_of_pokemons):
-    """Function to know if the Coach is still undefeated.
-
-    This function is used in order to know if the Coach is still undefeated.
-
-    Syntax
-    ------
-       [ ] = coach_is_undefeated(list_of_pokemons)
-
-    Parameters
-    ----------
-       [in] list_of_pokemons List of the Pokemons that are associated to the
-                             coach.
-
-    Returns
-    -------
-       Boolean True if the coach has all her/his Pokemons defeated.
-               False if the coach has any Pokemon that is undefeated.
-
-    Example
-    -------
-       >>> coach_is_undefeated(list_of_pokemons)
-    """
-
+    for p in list_of_pokemons:
+        if p.health > 0:
+            return False
+    return True
 
 def main():
-    """Function main of the module.
+    coach1 = get_data_from_coach("coach_1_pokemons.csv")
+    coach2 = get_data_from_coach("coach_2_pokemons.csv")
 
-    The function main of this module is used to perform the Game.
+    coach_playing1 = coach1[0]
+    coach_playing2 = coach2[0]
 
-    Syntax
-    ------
-      [ ] = main()
+    print("The coach 1 has chosen " + coach_playing1.name)
+    print("The coach 2 has chosen " + coach_playing2.name)
 
-    Parameters
-    ----------
-      Null .
-
-    Returns
-    -------
-      Null .
-
-    Example
-    -------
-      >>> main()
-    """
-
-    print("Welcome to the Game.")
-    print("Let's start to set the configuration of each game user. \n")
-
-    # Get configuration for Game User 1.
-
-
-    # Get configuration for Game User 2.
-
-
-    print("------------------------------------------------------------------")
-    print("The Game starts...")
-    print("------------------------------------------------------------------")
-
-    # Get a copy of the list of pokemons:
-
-
-    # Choose first pokemons
- 
-
-    # Main loop.
+    while True:
+        if not coach_is_undefeated(coach1):
+            print("The coach 2 has won")
+            break
+        if not coach_is_undefeated(coach2):
+            print("The coach 1 has won")
+            break
+    
+    
+    if __name__ == "__main__":
+      main()
 
 
 
-    print("------------------------------------------------------------------")
-    print("The Game has end...")
-    print("------------------------------------------------------------------")
-
-
-    print("------------------------------------------------------------------")
-    print("Statistics")
-    print("------------------------------------------------------------------")
-    print("Game User 1:")
-
-
-    print("Game User 2:")
-
-
-
-# Checking whether this module is executed just itself alone.
-if __name__ == "__main__":
-    main()
-
-
-# EOF
