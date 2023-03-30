@@ -23,4 +23,20 @@ class Pokemon:
                 print("La salud debe ser un número")
                 self.salud = input("Ingrese la salud: ")
 
+        while True:
+            try:
+                self.ataque = int(self.ataque)
+                break
+            except ValueError:
+                print("El ataque debe ser un número")
+                self.ataque = input("Ingrese el ataque: ")
+
+        while True:
+            try:
+                self.defensa = int(self.defensa)
+                break
+            except ValueError:
+                print("La defensa debe ser un número")
+                self.defensa = input("Ingrese la defensa: ")
+
     
