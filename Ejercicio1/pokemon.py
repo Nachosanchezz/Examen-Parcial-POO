@@ -54,5 +54,24 @@ class Pokemon:
         while True:
             if self.defensa < 0 or self.defensa > 10:
                 self.defensa = input("La defensa debe estar entre 0 y 10:")
+            else:
+                break
+
+        while True:
+            if self.arma == "Puñetazo" or self.arma == "Patada" or self.arma == "Codazo" or self.arma == "Cabezazo":
+                break
+            else:
+                self.arma = input("El arma debe ser Puñetazo, Patada, Codazo o Cabezazo: ")
+
+    def __str__(self):
+        return "El pokemon con ID: " + str(self.ID) + " de nombre: " + self.nombre + " tiene un arma: " + self.arma + " y una salud de: " + str(self.salud)
+    
+    
+                
+                
+
+            
+
+
 
     
