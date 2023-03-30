@@ -33,7 +33,8 @@ this Python class.
 
 # Source packages.
 
-
+from pokemon import Pokemon
+from weapon_type import WeaponType
 
 class PokemonAir():
     """Python class to implement a basic version of a Pokemon of the game.
@@ -68,6 +69,29 @@ class PokemonAir():
       >>> from weapon_type import WeaponType
       >>> obj_Pokemon = PokemonEarth(1, "Pidgey", WeaponType.PUNCH, 100, 7, 10)
     """
+
+    def __init__(self, id, pokemon_name, weapon_type, health_points, attack_rating, defense_rating):
+        self.id = id
+        self.pokemon_name = pokemon_name
+        self.weapon_type = weapon_type
+        self.health_points = int(health_points)
+        self.attack_rating = int(attack_rating)
+        self.defense_rating = int(defense_rating)
+    def get_pokemon_name(self):
+        return self.pokemon_name
+    def get_weapon_type(self):
+        return self.weapon_type
+    def get_health_points(self):
+        return self.health_points
+    def get_attack_rating(self):
+        return self.attack_rating
+    def get_defense_rating(self):
+        return self.defense_rating
+    def __str__(self):
+        return "Pokemon ID " + str(self.id) + " with name " + self.pokemon_name + " has as weapon " + self.weapon_type.name + " and health " + str(self.health_points)
+    
+
+
 
 
 def main():
