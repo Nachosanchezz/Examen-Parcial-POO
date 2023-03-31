@@ -3,7 +3,7 @@ from pokemon import Pokemon
 from weapon_type import WeaponType
 import random
 
-class PokemonAir(Pokemon):
+class PokemonAir():
     def __init__(self, id, pokemon_name, weapon_type, health_points, attack_rating, defense_rating):
         self.id = id
         self.pokemon_name = pokemon_name
@@ -11,6 +11,24 @@ class PokemonAir(Pokemon):
         self.health_points = int(health_points)
         self.attack_rating = int(attack_rating)
         self.defense_rating = int(defense_rating)
+    
+    def get_pokemon_name(self):
+        return self.pokemon_name
+    def get_weapon_type(self):
+        return self.weapon_type
+    def get_health_points(self):
+        return self.health_points
+    def get_attack_rating(self):
+        return self.attack_rating
+    def get_defense_rating(self):
+        return self.defense_rating
+    def __str__(self):
+        return "Pokemon ID " + str(self.id) + " with name " + self.pokemon_name + " has as weapon " + self.weapon_type.name + " and health " + str(self.health_points)
+    def is_alive(self):
+        if self.health_points > 0:
+            return True
+        else:
+            return False
     
     def fight_defense(self, damage):
         numero = random.randint(1, 100)
