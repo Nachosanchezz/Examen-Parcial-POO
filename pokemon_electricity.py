@@ -38,6 +38,32 @@ from weapon_type import WeaponType
 import random
 
 class PokemonElectricity():
+    """Python class to implement a basic version of a Pokemon of the game.
+    This Python class implements the basic version of a Pokemon of the game.
+    Syntax
+    ------
+      obj = PokemonElectricity(id, pokemon_name, weapon_type, health_points,
+                         attack_rating, defense_rating)
+    Parameters
+    ----------
+      [in] id ID of the Pokemon.
+      [in] pokemon_name Name of the Pokemon.
+      [in] weapon_type Type of weapon that carries out the Pokemon.
+      [in] health_points Points of health that the Pokemon has.
+      [in] attack_rating Attack rating of the Pokemon.
+      [in] defense_rating Defense rating of the Pokemon.
+    Returns
+    -------
+      obj Python object output parameter that represents an instance
+          of the class Pokemon.
+    Attributes
+    ----------
+    Example
+    -------
+      >>> from pokemon import Pokemon
+      >>> from weapon_type import WeaponType
+      >>> obj_Pokemon = PokemonEarth(1, "Pikachu", WeaponType.PUNCH, 100, 7, 10)
+    """
 
     def __init__(self, id, pokemon_name, weapon_type, health_points, attack_rating, defense_rating):
         self.id = id
@@ -82,6 +108,22 @@ class PokemonElectricity():
 
 
 def main():
+    """Function main of the module.
+    The function main of this module is used to test the Class that is described
+    in this module.
+    Syntax
+    ------
+      [ ] = main()
+    Parameters
+    ----------
+      Null .
+    Returns
+    -------
+      Null .
+    Example
+    -------
+      >>> main()
+    """
     
     print("=================================================================.")
     print("Test Case 1: Create a Pokemon.")
