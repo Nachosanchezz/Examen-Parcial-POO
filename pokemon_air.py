@@ -18,11 +18,11 @@ class PokemonAir(Pokemon):
             damage = 0
         else:
             damage = damage
-        if self.defense_rating >= damage:
+        if self.defense_rating > damage:
             return False
             
         else:
-            self.health_points = self.health_points - damage
+            self.health_points = damage - self.health_points 
             return True
     def fight_attack(self, pokemon_attack):
         return pokemon_attack.fight_defense(self.attack_rating)

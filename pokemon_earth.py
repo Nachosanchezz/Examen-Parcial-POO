@@ -35,18 +35,14 @@ class PokemonEarth():
         else:
             return False
     def fight_defense(self, damage):
-        self.health_points = self.health_points - damage + self.defense_rating
-        if self.health_points <= 0:
+        if self.defense_rating >= damage:
             return False
         else:
+            self.health_points -=  damage - self.defense_rating  
             return True
         
     def fight_attack(self, pokemon_attack):
-        self.health_points = self.health_points -  pokemon_attack.fight_defense(self.attack_rating)
-        if self.health_points <= 0:
-            return False
-        else:
-            return True
+        return pokemon_attack.fight_defense(self.attack_rating)
 
 
 def main():
