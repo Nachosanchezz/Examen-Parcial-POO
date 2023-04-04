@@ -119,6 +119,11 @@ def get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
     pokemon_to_choose = int(input("Coach " + str(coach_to_ask) + " choose your Pokemon: "))
     if pokemon_to_choose == 1:
         return list_of_pokemons[0]
+    elif pokemon_to_choose == 2:
+        return list_of_pokemons[1]
+    elif pokemon_to_choose == 3:
+        return list_of_pokemons[2]
+    return pokemon_to_choose
 
 
 
@@ -147,6 +152,11 @@ def coach_is_undefeated(list_of_pokemons):
     -------
        >>> coach_is_undefeated(list_of_pokemons)
     """
+
+    if len(list_of_pokemons) == 0:
+        return False
+    else:
+        return True
 
 
 def main():
