@@ -190,13 +190,23 @@ def main():
     for i in coach1:
       print(i)
 
-    coach2 = get_data_from_user("coach2_pokemons.csv")
-    for u in coach2:
-        print(i)
-
-
-
+  
     # Get configuration for Game User 2.
+
+    coach2 = get_data_from_user("coach2_pokemons.csv")
+    for i in coach2:
+        print(i)
+      
+    dañoRecibido1 = 0
+    dañoRecibido2 = 0
+    dañoInflingido1 = 0
+    dañoInflingido2 = 0
+
+
+
+
+
+    
 
 
     print("------------------------------------------------------------------")
@@ -204,6 +214,8 @@ def main():
     print("------------------------------------------------------------------")
 
     # Get a copy of the list of pokemons:
+
+    pokemons = [coach1, coach2]
 
 
     # Choose first pokemons
