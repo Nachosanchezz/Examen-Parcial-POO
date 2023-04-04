@@ -186,6 +186,15 @@ def main():
 
     # Get configuration for Game User 1.
 
+    coach1 = get_data_from_user("coach1_pokemons.csv")
+    for i in coach1:
+      print(i)
+
+    coach2 = get_data_from_user("coach2_pokemons.csv")
+    for u in coach2:
+        print(i)
+
+
 
     # Get configuration for Game User 2.
 
