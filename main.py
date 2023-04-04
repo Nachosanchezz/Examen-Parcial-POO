@@ -219,9 +219,14 @@ def main():
 
 
     # Choose first pokemons
+
+    pokemons1 = get_pokemon_in_a_list_of_pokemons("coach1", coach1)
+    pokemons2 = get_pokemon_in_a_list_of_pokemons("coach2", coach2)
  
 
     # Main loop.
+
+    
 
 
 
