@@ -32,6 +32,12 @@ This Python method contains the application of the Game.
 
 # Source packages.
 
+import csv
+import random
+from pokemon import Pokemon
+from weapon_type import WeaponType
+
+
 
 
 def get_data_from_user(name_file):
@@ -56,6 +62,24 @@ def get_data_from_user(name_file):
     -------
       >>> list_pokemons = get_data_from_user("file.csv")
     """
+
+    list_pokemons = []
+    with open (name_file, "r") as file:
+      reader = csv.reader(file)
+      for line in reader:
+        if line[2] == "headbutt":
+           list = Pokemon(int(line[0])), str(line[1]), WeaponType.HEADBUTT, int(line[3]), int(line[4]), int(line[5])
+        elif line[2] == "elbow":
+            list = Pokemon(int(line[0])), str(line[1]), WeaponType.ELBOW, int(line[3]), int(line[4]), int(line[5])
+        elif line[2] == "kick":
+            list = Pokemon(int(line[0])), str(line[1]), WeaponType.KICK, int(line[3]), int(line[4]), int(line[5])
+        elif line[2] == "punch":
+            list = Pokemon(int(line[0])), str(line[1]), WeaponType.PUNCH, int(line[3]), int(line[4]), int(line[5])
+
+        list_pokemons.append(list)
+        return list_pokemons
+      
+    
 
 
 
@@ -84,6 +108,19 @@ def get_pokemon_in_a_list_of_pokemons(coach_to_ask, list_of_pokemons):
     -------
        >>> get_pokemon_in_a_list_of_pokemons(1, list_of_pokemons)
     """
+
+    if len(list_of_pokemons) == 3:
+        print("1:", list_of_pokemons[0].pokemon_name, "2:", list_of_pokemons[1].pokemon_name, "3:", list_of_pokemons[2].pokemon_name)
+    elif len(list_of_pokemons) == 2:
+        print("1:", list_of_pokemons[0].pokemon_name, "2:", list_of_pokemons[1].pokemon_name)
+    else:
+        print("Careful, you only have 1 left:", list_of_pokemons[0].pokemon_name)
+    
+    pokemon_to_choose = int(input("Coach " + str(coach_to_ask) + " choose your Pokemon: "))
+    if pokemon_to_choose == 1:
+        return list_of_pokemons[0]
+
+
 
 
 
