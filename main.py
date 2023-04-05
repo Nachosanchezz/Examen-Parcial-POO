@@ -239,6 +239,24 @@ def main():
                 coach2.remove(pokemons2)
                 if coach_is_undefeated(coach2):
                     pokemons2 = get_pokemon_in_a_list_of_pokemons("coach2", coach2)
+                else:
+                    break
+            else:
+                print("Coach 2 has not lost the battle")
+        else:
+            print("Coach 2 attacks")
+            dañoInflingido2 = pokemons2.attack(pokemons1)
+            dañoRecibido1 = pokemons1.receive_damage(dañoInflingido2)
+            print("The damage received by Coach 1 is: ", dañoRecibido1)
+            if dañoRecibido1 >= pokemons1.pokemon_life:
+                print("Coach 1 has lost the battle")
+                coach1.remove(pokemons1)
+                if coach_is_undefeated(coach1):
+                    pokemons1 = get_pokemon_in_a_list_of_pokemons("coach1", coach1)
+                else:
+                    break
+            else:
+                print("Coach 1 has not lost the battle")
 
         
         
