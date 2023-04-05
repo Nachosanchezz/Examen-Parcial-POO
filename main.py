@@ -226,7 +226,24 @@ def main():
 
     # Main loop.
 
-    
+    while coach_is_undefeated(coach1) and coach_is_undefeated(coach2):
+        random_number = random.randint(1, 2)
+        print(random_number)
+        if random_number == 1:
+            print("Coach 1 attacks")
+            dañoInflingido1 = pokemons1.attack(pokemons2)
+            dañoRecibido2 = pokemons2.receive_damage(dañoInflingido1)
+            print("The damage received by Coach 2 is: ", dañoRecibido2)
+            if dañoRecibido2 >= pokemons2.pokemon_life:
+                print("Coach 2 has lost the battle")
+                coach2.remove(pokemons2)
+                if coach_is_undefeated(coach2):
+                    pokemons2 = get_pokemon_in_a_list_of_pokemons("coach2", coach2)
+
+        
+        
+
+
 
 
 
