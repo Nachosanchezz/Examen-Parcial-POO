@@ -258,6 +258,24 @@ def main():
             else:
                 print("Coach 1 has not lost the battle")
 
+            if pokemons1.pokemon_life <= 0:
+                coach1.remove(pokemons1)
+                if coach_is_undefeated(coach1):
+                    pokemons1 = get_pokemon_in_a_list_of_pokemons("coach1", coach1)
+                else:
+                    break
+            elif pokemons2.pokemon_life <= 0:
+                coach2.remove(pokemons2)
+                if coach_is_undefeated(coach2):
+                    pokemons2 = get_pokemon_in_a_list_of_pokemons("coach2", coach2)
+                else:
+                    break
+                
+
+
+
+
+
         
         
 
